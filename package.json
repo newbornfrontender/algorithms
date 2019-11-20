@@ -1,0 +1,59 @@
+{
+  "scripts": {
+    "pretty": "prettier **/*.{json,md}",
+    "pretty:write": "yarn pretty --write",
+    "lint": "eslint **/*.ts",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest",
+    "test:changed": "yarn test -o",
+    "test:watch": "yarn test --watch",
+    "start": "nodemon"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-jest": "^23.0.4",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "parser": "@typescript-eslint/parser",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:jest/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "nodemonConfig": {
+    "ext": "ts",
+    "ignore": "**/*.{spec,test}.ts",
+    "exec": "ts-node src/index"
+  }
+}
